@@ -141,6 +141,7 @@ def download_videos(response):
             video = json.loads(video_media)
             video_path = VIDEO_PATH + '/' + article_title +'.mp4'
             m3u8 = video.get('hd').get('url')
+            # cmd = 'ffmpeg -y -i %s -strict -2 %s' % (m3u8, video_path)
             cmd = 'ffmpeg -y -i %s %s' % (m3u8, video_path)
             os.system(cmd)
 
@@ -161,11 +162,11 @@ def download_json(json_data, file_name):
         print("save : {}.json".format(file_name))
         f.close()
 
-def download_one_audio(audio_url, article_sharetitle):
-    if len(audio_url) > 0:
-        print(audio_url)
+def download_one_audio(audio_download_url, article_sharetitle):
+    if len(audio_download_url) > 0:
+        print(audio_download_url)
         mp3_path = AUDIO_PATH + '/' + article_sharetitle +'.mp3'
-        cmd = "wget -c %s -O %s" % (audio_url, mp3_path)
+        cmd = "wget -c %s -O %s" % (audio_download_url, mp3_path)
         os.system(cmd)
 
 def download_audio(response):
@@ -178,14 +179,14 @@ def download_audio(response):
     list = json_data.get('data').get('list')
 
     for item in list:
-        audio_url = item.get('audio_url')
+        audio_download_url = item.get('audio_download_url')
         article_sharetitle = item.get('article_sharetitle')
 
         pattern = ' |\|'
         article_sharetitle = re.sub(pattern, '_', article_sharetitle)
         print(article_sharetitle)
 
-        download_one_audio(audio_url, article_sharetitle)
+        download_one_audio(audio_download_url, article_sharetitle)
 
 def exec_audio():
     cid = int(input("input audio column id:\n> "))

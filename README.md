@@ -56,6 +56,71 @@ libpostproc    54.  7.100 / 54.  7.100
 ...
 ```
 
+## issue
+---
+
+* How do I install Python 3.6 using apt-get?
+
+> Ubuntu 14.04 and 16.04
+
+If you are using Ubuntu 14.04 or 16.04, you can use Felix Krull's deadsnakes PPA at https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa:
+
+```bash
+$ sudo add-apt-repository ppa:deadsnakes/ppa
+$ sudo apt-get update
+$ sudo apt-get install python3.6
+```
+
+Alternatively, you can use J Fernyhough's PPA at https://launchpad.net/~jonathonf/+archive/ubuntu/python-3.6:
+
+```bash
+$ sudo add-apt-repository ppa:jonathonf/python-3.6
+$ sudo apt-get update
+$ sudo apt-get install python3.6
+```
+
+> Ubuntu 16.10 and 17.04
+
+If you are using Ubuntu 16.10 or 17.04, then Python 3.6 is in the universe repository, so you can just run:
+
+```bash
+$ sudo apt-get update
+$ sudo apt-get install python3.6
+```
+
+After installation for Ubuntu 14.04, 16.04, 16.10 and 17.04
+To invoke the Python 3.6 interpreter, run python3.6.
+
+> Ubuntu 17.10
+
+Ubuntu 17.10 already comes with Python 3.6 as default. Just run python3 to invoke it.
+
+<https://askubuntu.com/questions/865554/how-do-i-install-python-3-6-using-apt-get>
+
+* fatal error: Python.h: No such file or director
+
+> install python*-dev
+
+```bash
+$ sudo apt install python-dev
+$ sudo apt install python3-dev
+$ sudo apt install python3.6-dev
+```
+
+* sqlite3.OperationalError: no such column: secure
+
+Chrome 66 has changed the name of the column secure to is_secure in the cookies table. It seems that it's simple to fix this by changing the database query in L118 of __init__.py, but I'm not sure that's enough.
+
+> [Chrome 66 SQLite schema change](https://bitbucket.org/richardpenman/browsercookie/issues/26/chrome-66-sqlite-schema-change)
+
+* The encoder 'aac' is experimental but experimental codecs are not enabled, add '-strict -2' if you want to use it.
+
+> change ffmpeg command in **geek_time.py** to +144 line
+
+```
+ffmpeg -i ***.m3u8 -strict -2 ***.mp4
+```
+
 
 # License
 ---
