@@ -1,6 +1,12 @@
 # GeekTime 下载极客时间音视频
 ---
 
+### [下载《极客时间》音视频（一）](http://iosdevlog.com/2018/04/19/time.html)
+### [下载《极客时间》音视频（二）](http://iosdevlog.com/python/2018/04/26/geektime.html)
+### [下载《极客时间》音视频（三）](http://iosdevlog.com/2018/04/28/geek-time.html)
+
+---
+
 # screenshot
 
 ![download](./screenshot/download.png)
