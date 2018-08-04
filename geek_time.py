@@ -164,7 +164,7 @@ def download_json(json_data, file_name):
 def download_one_audio(audio_download_url, article_sharetitle):
     if len(audio_download_url) > 0:
         print(audio_download_url)
-        mp3_path = AUDIO_PATH + '/' + article_sharetitle +'.mp3'
+        mp3_path = AUDIO_PATH + article_sharetitle +'.mp3'
         cmd = "wget -c %s -O %s" % (audio_download_url, mp3_path)
         os.system(cmd.encode('utf-8'))
 
