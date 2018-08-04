@@ -166,7 +166,7 @@ def download_one_audio(audio_download_url, article_sharetitle):
         print(audio_download_url)
         mp3_path = AUDIO_PATH + '/' + article_sharetitle +'.mp3'
         cmd = "wget -c %s -O %s" % (audio_download_url, mp3_path)
-        os.system(cmd)
+        os.system(cmd.encode('utf-8'))
 
 def download_audio(response):
     json_data = json.loads(response.content.decode('utf-8'))
